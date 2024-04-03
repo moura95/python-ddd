@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: db
+    user: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5431:5432"
+    volumes:
+      - db:/var/lib/psql/data
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+volumes:
+  db:
